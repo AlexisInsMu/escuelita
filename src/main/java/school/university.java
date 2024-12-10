@@ -10,10 +10,10 @@ import java.util.List;
 import java.util.Map;
 
 public class university {
-    private List<Alumno> alumnos;
-    private List<Profesor> profesores;
-    private List<String> materias;
-    private List<Grupo> grupos;
+    private final List<Alumno> alumnos;
+    private final List<Profesor> profesores;
+    private final List<String> materias;
+    private final List<Grupo> grupos;
     private Map<Profesor, String> reportes;
 
 
@@ -33,7 +33,7 @@ public class university {
     }
 
     public void addMateria(Materia materia) {
-        materias.add(materia.getNombre());
+        //materias.add(materia.getNombre());
     }
 
     public void addGrupo(Grupo grupo) {
@@ -63,7 +63,7 @@ public class university {
         Alumno alumno1 = new Alumno("John", "Doe", "john.doe@example.com", "password", Roles.ESTUDIANTE, "A001");
         Profesor profesor1 = new Profesor("Jane", "Smith", "jane.smith@example.com", "password", Roles.PROFESOR, "1234A", "PhD");
         Grupo grupo1 = new Grupo("Group A");
-        Materia materia1 = new Materia("Mathematics", profesor1, grupo1);
+        //Materia materia1 = new Materia("Mathematics", profesor1, grupo1);
 
         uni.addAlumno(alumno1);
         uni.addProfesor(profesor1);
