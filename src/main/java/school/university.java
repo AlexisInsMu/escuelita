@@ -67,7 +67,7 @@ public class university {
 
         uni.addAlumno(alumno1);
         uni.addProfesor(profesor1);
-        uni.addMateria(materia1);
+        //uni.addMateria(materia1);
         uni.addGrupo(grupo1);
 
         System.out.println("University Management System Initialized");
