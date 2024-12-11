@@ -11,29 +11,31 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <junit.version>5.10.2</junit.version>
+        <junit.version>50.2</junit.version>
+        <javafx.version>21</javafx.version>
+
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>21</version>
+            <version>${javafx.version}</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>21</version>
+            <version>${javafx.version}</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-web</artifactId>
-            <version>21</version>
+            <version>${javafx.version}</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-swing</artifactId>
-            <version>21</version>
+            <version>${javafx.version}</version>
         </dependency>
         <dependency>
             <groupId>org.controlsfx</groupId>
@@ -105,8 +107,13 @@
                     <execution>
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
                         <configuration>
-                            <mainClass>com.example.demo/com.example.demo.HelloApplication</mainClass>
+                            <mainClass>com.example.demo.HelloApplication</mainClass>
+                            <addModules>javafx.controls,javafx.fxml,javafx.web,javafx.swing</addModules>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
