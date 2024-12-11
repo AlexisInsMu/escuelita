@@ -3,6 +3,7 @@ package personal;
 public class Profesor extends person {
     private String cedula;
     private String titulo;
+    private int canReportes;
 
     public Profesor(String name, String lastName, String email, String password, Roles role, String cedula, String titulo) {
         super(name, lastName, email, password, role);
@@ -24,6 +25,12 @@ public class Profesor extends person {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+    public  int getCanReportes(){
+        return canReportes;
+    }
+    public void setCanReportes(int canReportes){
+        this.canReportes = canReportes;
     }
 
     @Override

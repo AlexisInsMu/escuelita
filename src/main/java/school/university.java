@@ -18,10 +18,10 @@ public class university {
 
 
     public university() {
-        this.alumnos = new ArrayList<>();
-        this.profesores = new ArrayList<>();
-        this.materias = new ArrayList<>();
-        this.grupos = new ArrayList<>();
+        this.alumnos = new ArrayList<Alumno>();
+        this.profesores = new ArrayList<Profesor>();
+        this.materias = new ArrayList<String>();
+        this.grupos = new ArrayList<Grupo>();
     }
 
     public void addAlumno(Alumno alumno) {
@@ -32,16 +32,49 @@ public class university {
         profesores.add(profesor);
     }
 
-    public void addMateria(Materia materia) {
-        //materias.add(materia.getNombre());
+    public void addMateria(Materia materia, Grupo grupo) {
+        if(grupos.contains(grupo)){
+            if(grupo.getMaterias().contains(materia)) {
+                System.out.println("Materia already exists");
+            }else{
+                grupo.addMateria(materia);
+            }
+        }else{
+            grupos.add(grupo);
+            if(grupo.getMaterias().contains(materia)) {
+                System.out.println("Materia already exists");
+            }else{
+                grupo.addMateria(materia);
+            }
+        }
+        if (materias.contains(materia.getNombre())) {
+            System.out.println("Subject already exists");
+        }else{
+            materias.add(materia.getNombre());
+        }
     }
 
     public void addGrupo(Grupo grupo) {
-        grupos.add(grupo);
+        if(grupos.contains(grupo)){
+            System.out.println("Group already exists");
+        }else{
+            grupos.add(grupo);
+        }
     }
 
     public List<Alumno> getAlumnos() {
         return alumnos;
+    }
+    public void addReporte(Profesor profesor, String reporte){
+        reportes.put(profesor, reporte);
+    }
+    public Grupo buscarGrupoPorNombre(String nombre) {
+        for (Grupo grupo : grupos) {
+            if (grupo.getNombre().equalsIgnoreCase(nombre)) {
+                return grupo;
+            }
+        }
+        return null; // Retorna null si no se encuentra el grupo
     }
 
     public List<Profesor> getProfesores() {

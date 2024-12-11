@@ -32,8 +32,25 @@ public class Grupo {
         this.materias.remove(materia);
     }
 
+    public String imprimirMaterias(){
+        StringBuilder materias = new StringBuilder();
+        for (Materia materia : this.materias) {
+            materias.append(materia.getNombre()).append(", ");
+        }
+        return materias.toString();
+    }
     @Override
     public String toString() {
         return "Grupo: " + nombre + "\nMaterias: " + materias;
+    }
+
+
+    public Materia buscarMateriaPorNombre(String nombre) {
+        for (Materia materia : materias) {
+            if (materia.getNombre().equalsIgnoreCase(nombre)) {
+                return materia;
+            }
+        }
+        return null; // Returns null if the subject is not found
     }
 }

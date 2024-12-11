@@ -57,4 +57,8 @@ public class Materia {
     public String toString() {
         return nombre;
     }
+
+    public void setProfesor(Profesor profesor) {
+        this.profesor = profesor;
+    }
 }
