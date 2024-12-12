@@ -18,7 +18,7 @@ public class Alumno extends person {
     }
 
     public static int getContador() {
-        return contador; // Método estático para obtener el valor del contador
+        return contador; // Métudo estático para obtener el valor del contador
     }
 
     public String getMatricula() {
@@ -36,6 +36,25 @@ public class Alumno extends person {
     public Map<Materia, String> getMateriasCalificaciones() {
         return materiasCalificaciones;
     }
+
+    public String imprimirCalificaciones(){
+        String calificaciones = "";
+        for (Map.Entry<Materia, String> entry : materiasCalificaciones.entrySet()) {
+            Materia materia = entry.getKey();
+            String calificacion = entry.getValue();
+            calificaciones += "Materia: " + materia.getNombre() + " Calificacion: " + calificacion + "\n";
+        }
+        return calificaciones;
+    }
+    public String imprimirMaterias(){
+        String materias = "";
+        for (Map.Entry<Materia, String> entry : materiasCalificaciones.entrySet()) {
+            Materia materia = entry.getKey();
+            materias += "Materia: " + materia.getNombre() + " Grupo: " + materia.getGrupo() + "\n";
+        }
+        return materias;
+    }
+
 
     @Override
     public String toString() {

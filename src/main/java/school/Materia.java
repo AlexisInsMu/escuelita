@@ -13,11 +13,20 @@ public class Materia {
     private Profesor profesor_aux =  null;
     private Grupo grupo;
 
+
     public Materia(String nombre, Profesor profesor, Grupo grupo) {
         this.nombre = nombre;
         this.alumnosCalificaciones = new HashMap<>();
         this.profesor = profesor;
         this.grupo = grupo;
+    }
+
+    public Materia() {
+
+        this.nombre = "";
+        this.alumnosCalificaciones = new HashMap<>();
+        this.profesor = new Profesor();
+        this.grupo = new Grupo();
     }
 
     public  boolean hayProfesor_auxiliar(){
@@ -35,6 +44,7 @@ public class Materia {
     public Profesor getProfesor() {
         return profesor;
     }
+
 
     public String getNombre() {
         return nombre;
@@ -60,5 +70,12 @@ public class Materia {
 
     public void setProfesor(Profesor profesor) {
         this.profesor = profesor;
+    }
+
+    public Grupo getGrupo() {
+        return grupo;
+    }
+    public setGrupo(Grupo grupo){
+        this.grupo = grupo;
     }
 }

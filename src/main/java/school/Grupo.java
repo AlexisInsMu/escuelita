@@ -12,6 +12,11 @@ public class Grupo {
         this.materias = new ArrayList<>();
     }
 
+    public Grupo() {
+        this.nombre =  "";
+        this.materias = new ArrayList<>();
+    }
+
     public String getNombre() {
         return nombre;
     }

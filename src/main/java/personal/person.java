@@ -15,6 +15,14 @@ public class person{
         this.role = role;
     }
 
+    public person() {
+        this.name = "";
+        this.lastName = "";
+        this.email = "";
+        this.password = "";
+        this.role = Roles.ADMINISTRATIVO;
+    }
+
     public String getName(){
         return this.name;
     }

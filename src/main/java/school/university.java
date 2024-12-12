@@ -15,6 +15,7 @@ public class university {
     private final List<String> materias;
     private final List<Grupo> grupos;
     private Map<Profesor, String> reportes;
+    private static int capacidadAlumnos = 2;
 
 
     public university() {
@@ -89,6 +90,16 @@ public class university {
         return grupos;
     }
 
+
+    public Profesor buscarProfesorPorCedula(String cedula) {
+        for (Profesor profesor : profesores) {
+            if (profesor.getCedula().equalsIgnoreCase(cedula)) {
+                return profesor;
+            }
+        }
+        return null; // Retorna null si no se encuentra el profesor
+    }
+
     public static void main(String[] args) {
         university uni = new university();
 
@@ -104,5 +115,18 @@ public class university {
         uni.addGrupo(grupo1);
 
         System.out.println("University Management System Initialized");
+    }
+
+    public Alumno buscarAlumnoPorMatricula(String matriculaAlumno) {
+        for(var x : alumnos){
+            if(x.getMatricula().equalsIgnoreCase(matriculaAlumno)){
+                return x;
+            }
+        }
+        return null;
+    }
+
+    public int getAlumnosMax() {
+        return capacidadAlumnos;
     }
 }
