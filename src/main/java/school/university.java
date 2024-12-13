@@ -17,7 +17,7 @@ public class university {
     private Map<Profesor, String> reportes;
     private static int capacidadAlumnos = 2;
 
-
+    //Constructor
     public university() {
         this.alumnos = new ArrayList<Alumno>();
         this.profesores = new ArrayList<Profesor>();
@@ -25,15 +25,19 @@ public class university {
         this.grupos = new ArrayList<Grupo>();
     }
 
+    //Agregar un alumno
     public void addAlumno(Alumno alumno) {
         alumnos.add(alumno);
     }
 
+    //Agregar un profesor
     public void addProfesor(Profesor profesor) {
         profesores.add(profesor);
     }
 
+    //Agrega una materia a un grupo.
     public void addMateria(Materia materia, Grupo grupo) {
+        
         if(grupos.contains(grupo)){
             if(grupo.getMaterias().contains(materia)) {
                 System.out.println("Materia already exists");
@@ -41,6 +45,7 @@ public class university {
                 grupo.addMateria(materia);
             }
         }else{
+            //Si el grupo no existe, lo crea y luego agrega la materia.
             grupos.add(grupo);
             if(grupo.getMaterias().contains(materia)) {
                 System.out.println("Materia already exists");
@@ -48,6 +53,7 @@ public class university {
                 grupo.addMateria(materia);
             }
         }
+        //Evita duplicados tanto en grupos como en materias.
         if (materias.contains(materia.getNombre())) {
             System.out.println("Subject already exists");
         }else{
@@ -55,6 +61,7 @@ public class university {
         }
     }
 
+    //Agrega un grupo
     public void addGrupo(Grupo grupo) {
         if(grupos.contains(grupo)){
             System.out.println("Group already exists");
@@ -63,12 +70,19 @@ public class university {
         }
     }
 
+    //Se obtiene un alumno
     public List<Alumno> getAlumnos() {
         return alumnos;
     }
+
+    //Se agrega un reporte al profesor.
+    //Va a recibir el objeto Profesor al cual se le asigna el reporte y
+    //el texto del reporte. 
     public void addReporte(Profesor profesor, String reporte){
         reportes.put(profesor, reporte);
     }
+
+    //Buscamos un grupo por su nombre.
     public Grupo buscarGrupoPorNombre(String nombre) {
         for (Grupo grupo : grupos) {
             if (grupo.getNombre().equalsIgnoreCase(nombre)) {
@@ -78,19 +92,22 @@ public class university {
         return null; // Retorna null si no se encuentra el grupo
     }
 
+    //Se obtiene un profesor.
     public List<Profesor> getProfesores() {
         return profesores;
     }
 
+    //Se obtiene la lista de las materias
     public List<String> getMaterias() {
         return materias;
     }
 
+    //Se obtiene la lista de grupos registrados.
     public List<Grupo> getGrupos() {
         return grupos;
     }
 
-
+    //Buscamos un profesor en la lista por su cedula.
     public Profesor buscarProfesorPorCedula(String cedula) {
         for (Profesor profesor : profesores) {
             if (profesor.getCedula().equalsIgnoreCase(cedula)) {
@@ -100,6 +117,7 @@ public class university {
         return null; // Retorna null si no se encuentra el profesor
     }
 
+    //Método principal que muestra un caso prueba.
     public static void main(String[] args) {
         university uni = new university();
 
@@ -117,6 +135,8 @@ public class university {
         System.out.println("University Management System Initialized");
     }
 
+
+    //Buscamos un alumno en la lista por su Matricula.
     public Alumno buscarAlumnoPorMatricula(String matriculaAlumno) {
         for(var x : alumnos){
             if(x.getMatricula().equalsIgnoreCase(matriculaAlumno)){
@@ -126,6 +146,7 @@ public class university {
         return null;
     }
 
+    //Se obtiene el numero máximo de capacidad de alumnos.
     public int getAlumnosMax() {
         return capacidadAlumnos;
     }

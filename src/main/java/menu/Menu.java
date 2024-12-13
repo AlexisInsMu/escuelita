@@ -299,7 +299,6 @@ public class Menu {
             System.out.println("2-. Ver alumnos");
             System.out.println("3-. Ver grupos");
             System.out.println("4-. Salir del menu");
-            System.out.println("4-. Salir del menu");
             int op2 = scanner.nextInt();
             scanner.nextLine(); // Consume the leftover newline
             switch (op2) {
