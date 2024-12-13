@@ -1,13 +1,13 @@
 package personal;
 
-import java.util.ArrayList;
-
 import school.Materia;
+
+import java.util.ArrayList;
 
 public class Profesor extends person {
     private String cedula;
     private String titulo;
-    private int canReportes; //Cantidad de reportes que tiene el profe.
+    private int canReportes; //Cantidad de reportes que tiene el profe
     private final ArrayList<Materia> materias;
     private final ArrayList<String> reportes;
     private final ArrayList<String> grupos;

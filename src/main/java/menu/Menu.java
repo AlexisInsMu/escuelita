@@ -24,7 +24,11 @@ public class Menu {
             System.out.println("2-. Crear un grupo");
             System.out.println("3-. Inscribir un alumno");
             System.out.println("4-. Crear una materia");
-            System.out.println("5-. Salir del menu");
+            System.out.println("5-. Ver listado de profesores");
+            System.out.println("6-. Ver listado de alumnos");
+            System.out.println("7-. Ver listado de grupos");
+            System.out.println("8-. Ver listado de materias");
+            System.out.println("9-. Salir del menu");
             int op2 = scanner.nextInt();
             scanner.nextLine(); // Consume the leftover newline
             switch (op2) {
@@ -44,7 +48,31 @@ public class Menu {
                     crear_materia(scanner, uni);
                     break;
 
+
                 case 5:
+                    TerminalUtils.clearTerminal();
+                    System.out.println("----Listado de profesores----");
+                    System.out.println(uni.imprimirProfesores());
+                    break;
+
+                case 6:
+                    TerminalUtils.clearTerminal();
+                    System.out.println("----Listado de alumnos----");
+                    System.out.println(uni.imprimirAlumnos());
+                    break;
+
+                case 7:
+                    TerminalUtils.clearTerminal();
+                    System.out.println("----Listado de grupos----");
+                    System.out.println(uni.imprimirGrupos());
+                    break;
+
+                case 8:
+                    TerminalUtils.clearTerminal();
+                    System.out.println("----Listado de materias----");
+                    System.out.println(uni.imprimirMaterias());
+                    break;
+                case 9:
                     System.out.println("Saliendo del menu");
                     return; // Exit the loop
 
@@ -87,7 +115,7 @@ public class Menu {
     private static void crear_alumno(Scanner scanner, university uni) {
         try {
             TerminalUtils.clearTerminal();
-            if(!uni.getAlumnos().isEmpty() && Alumno.getContador() ==  uni.getAlumnosMax()){
+            if (!uni.getAlumnos().isEmpty() && Alumno.getContador() == uni.getAlumnosMax()) {
                 System.out.println("No se pueden agregar más alumnos");
                 return;
             }
@@ -116,7 +144,7 @@ public class Menu {
                 System.out.println("No hay grupos creados");
             } else if (uni.buscarGrupoPorNombre(grupo) != null) {
                 if (uni.buscarGrupoPorNombre(grupo).buscarMateriaPorNombre(materia) != null) {
-                    if(!uni.getAlumnos().isEmpty() && uni.buscarAlumnoPorMatricula(matricula_alumno) != null){
+                    if (!uni.getAlumnos().isEmpty() && uni.buscarAlumnoPorMatricula(matricula_alumno) != null) {
                         System.out.println("Alumno ya estaba inscrito");
                         return;
                     }
@@ -282,6 +310,8 @@ public class Menu {
                     menu_profesor(scanner, uni);
                     break;
 
+                case 4:
+                    return; // Exit the loop
                 default:
                     throw new AssertionError();
             }
@@ -291,7 +321,7 @@ public class Menu {
 
     private static void menu_profesor(Scanner scanner, university uni) {
         TerminalUtils.clearTerminal();
-        while (true){
+        while (true) {
             TerminalUtils.clearTerminal();
             System.out.println("----Menu PROFESOR----");
             System.out.println("Selecciona una de las opciones siguientes");

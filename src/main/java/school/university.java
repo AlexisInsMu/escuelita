@@ -150,4 +150,33 @@ public class university {
     public int getAlumnosMax() {
         return capacidadAlumnos;
     }
+
+    public String imprimirProfesores() {
+        StringBuilder profe = new StringBuilder();
+        for(var x :  profesores){
+            profe.append(x.getName()).append(" ").append(x.getLastName()).append("\n");
+        }
+        return profe.toString();
+    }
+    public String imprimirAlumnos() {
+        StringBuilder alumn = new StringBuilder();
+        for(var x :  alumnos){
+            alumn.append(x.getName()).append(" ").append(x.getLastName()).append("\n");
+        }
+        return alumn.toString();
+    }
+    public String imprimirMaterias() {
+        StringBuilder mater = new StringBuilder();
+        for(var x :  materias){
+            mater.append(x).append("\n");
+        }
+        return mater.toString();
+    }
+    public String imprimirGrupos() {
+        StringBuilder grup = new StringBuilder();
+        for(var x :  grupos){
+            grup.append(x.getNombre()).append("\n");
+        }
+        return grup.toString();
+    }
 }
