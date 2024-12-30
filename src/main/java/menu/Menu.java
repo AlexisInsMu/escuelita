@@ -290,7 +290,7 @@ public class Menu {
 
         while (true) {
             TerminalUtils.clearTerminal();
-            System.out.println("-----menu-----");
+            System.out.println("-----Menu-----");
             System.out.println("1-. Adminsitrador");
             System.out.println("2-. Alumno");
             System.out.println("3-. Profesor");
